@@ -1,0 +1,87 @@
+/* Estilos gerais e das fontes */
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.font-pacifico {
+    font-family: 'Pacifico', cursive;
+}
+
+/* Estilos da animação de corações */
+.heart {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: red; 
+    transform: rotate(-45deg);
+    animation: float 15s infinite linear;
+    opacity: 0.7;
+    z-index: 0;
+    top: -50px;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -15px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 15px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(110vh) rotate(-45deg) scale(0.8);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-10vh) rotate(-45deg) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Estilos da galeria de fotos */
+#photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+#photo-grid .photo-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+#photo-grid img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+#photo-grid img:hover {
+    transform: scale(1.05);
+}
